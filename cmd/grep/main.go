@@ -88,6 +88,7 @@ func main() {
 		for _, line := range allLines {
 			fmt.Print(line)
 		}
+		time.Sleep(100 * time.Millisecond)
 		nodeInstance.BroadcastStopSignal()
 		time.Sleep(200 * time.Millisecond)
 	} else {

@@ -41,9 +41,8 @@ func (c *Coordinator) AddVote(nodeID int, found bool, lines []string) bool {
 
 	if len(c.votes) >= c.votesNeeded && !c.quorumDone {
 		c.quorumDone = true
-		log.Println("Coordinator: quorum reached, waiting 500ms for late results...")
 		go func() {
-			time.Sleep(500 * time.Millisecond)
+			time.Sleep(2000 * time.Millisecond)
 			c.mu.Lock()
 			defer c.mu.Unlock()
 			close(c.stopCh)

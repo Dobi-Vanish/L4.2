@@ -5,15 +5,15 @@ FILE="data.txt"
 PATTERN="banana"
 FLAGS="-n -i"
 
-if [ ! -x "./grep" ]; then
-    echo "Error: ./grep not found or not executable. Run 'go build -o grep ./cmd/grep' first."
+if [ ! -x "./mygrep" ]; then
+    echo "Error: ./mygrep not found or not executable. Run 'go build -o mygrep ./cmd/grep' first."
     exit 1
 fi
 
 start_node() {
     local id=$1
     local title="Node $id"
-    local cmd="./grep -id=$id -peers=\"$PEERS\" -file=\"$FILE\" -pattern=\"$PATTERN\" $FLAGS"
+    local cmd="./mygrep -id=$id -peers=\"$PEERS\" -file=\"$FILE\" -pattern=\"$PATTERN\" $FLAGS"
     if command -v gnome-terminal >/dev/null; then
         gnome-terminal --title="$title" -- bash -c "$cmd; echo 'Press Enter to exit...'; read"
     elif command -v xterm >/dev/null; then
