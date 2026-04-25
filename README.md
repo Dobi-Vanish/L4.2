@@ -3,6 +3,7 @@
 Для запуска склонируйте проект:  
 `git clone https://github.com/Dobi-Vanish/L4.2`  
 Перейдите в склонированный проект и выполните:  
+`protoc --go_out=. --go-grpc_out=. proto/grep.proto`  
 `go build -o mygrep ./cmd/grep`  
 `chmod +x *.sh`  
 Есть 2 исполняемых файла - `run_cluster.sh` чтобы увидеть работу каждого из нодов и `benchmark.sh` чтобы увидеть сравнение в выполнении с оригинальном grep'ом.  
