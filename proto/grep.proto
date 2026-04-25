@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package grep;
+
+option go_package = "grep/proto";
+
+service GrepService {
+  rpc ReportResult(ResultRequest) returns (ResultResponse);
+  rpc BroadcastStop(StopRequest) returns (StopResponse);
+}
+
+message ResultRequest {
+  int32 node_id = 1;
+  bool found = 2;
+  repeated string lines = 3;
+}
+
+message ResultResponse {
+  bool ack = 1;
+}
+
+message StopRequest {}
+
+message StopResponse {}
